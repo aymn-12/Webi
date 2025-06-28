@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Webi | خدمة تطوير المواقع</title>
+    
+    <!-- تحميل Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- تحميل خط Noto Kufi Arabic من Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Kufi+Arabic:wght@100..900&display=swap" rel="stylesheet">
+    
+    <!-- أيقونات Font Awesome (اختياري، للرموز الاجتماعية) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <meta name="description" content="نقدم في إتقان الويب خدمات تصميم وتطوير مواقع سريعة وجذابة للشركات في بغداد والعراق. احصل على استشارة مجانية لتحويل فكرتك إلى واقع.">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="Image/webi.png" sizes="any">
+    <style>
+        /* استخدام خط Noto Kufi Arabic الافتراضي وتعيين الألوان الأساسية */
+        body {
+            font-family: 'Noto Kufi Arabic', sans-serif;
+            background-color: #111827; /* أزرق داكن جدًا */
+            color: #E5E7EB; /* رمادي فاتح */
+            font-weight: 500; /* تطبيق الوزن المطلوب */
+        }
+        .bg-primary {
+            background-color: #0d9488; /* اللون الأخضر المزرق للتمييز */
+        }
+        .text-primary {
+            color: #0d9488;
+        }
+        .border-primary {
+            border-color: #0d9488;
+        }
+        
+        h1, h2 {
+             font-weight: 700; /* إبقاء العناوين أثقل للتمييز */
+        }
+        /* تأثير ظهور تدريجي للأقسام عند التمرير */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+         /* --- بداية كود الأنيميشن الجديد --- */
+        .animation-container {
+            position: relative;
+            width: 100%;
+            height: 350px; /* يمكنك تعديل ارتفاع القسم حسب الحاجة */
+            overflow: hidden;
+        }
+        .shape {
+            position: absolute;
+            bottom: -100px; /* تبدأ من خارج الشاشة */
+          
+            font-family: monospace;
+            font-weight: bold;
+            animation: moveUp 25s infinite linear;
+        }
+        
+        /* تعريف الحركة */
+        @keyframes moveUp {
+            0% {
+                transform: translateY(0);
+            }
+            100% {
+                transform: translateY(-500px); /* المسافة التي تتحركها الأشكال للأعلى */
+                 opacity: 0;
+            }
+        }
+
+        /* أحجام وتأخيرات مختلفة لجعل الحركة تبدو عشوائية */
+        .shape:nth-child(1) { left: 10%; font-size: 2rem; animation-duration: 22s; animation-delay: 0s; }
+        .shape:nth-child(2) { left: 20%; font-size: 4rem; animation-duration: 18s; animation-delay: 2s; }
+        .shape:nth-child(3) { left: 30%; font-size: 1.5rem; animation-duration: 28s; animation-delay: 5s; }
+        .shape:nth-child(4) { left: 40%; font-size: 3rem; animation-duration: 15s; animation-delay: 1s; }
+        .shape:nth-child(5) { left: 50%; font-size: 5rem; animation-duration: 20s; animation-delay: 3s; }
+        .shape:nth-child(6) { left: 60%; font-size: 2.5rem; animation-duration: 25s; animation-delay: 6s; }
+        .shape:nth-child(7) { left: 70%; font-size: 4.5rem; animation-duration: 17s; animation-delay: 4s; }
+        .shape:nth-child(8) { left: 80%; font-size: 3.5rem; animation-duration: 23s; animation-delay: 7s; }
+        .shape:nth-child(9) { left: 90%; font-size: 2rem; animation-duration: 19s; animation-delay: 2s; }
+        .shape:nth-child(10) { left: 5%; font-size: 3rem; animation-duration: 21s; animation-delay: 8s; }
+        /* --- نهاية كود الأنيميشن الجديد --- */
+    </style>
+</head>
+
+<body class="antialiased">
+
+    <!--                  الهيدر والتنقل                 -->
+   
+    <header class="bg-gray-900/80 backdrop-blur-sm fixed top-0 left-0 right-0 z-50">
+        <div class="container mx-auto px-6 py-4">
+            <div class="flex items-center justify-between">
+                <div class="text-2xl font-bold text-white">
+                    Webi
+                </div>
+                <nav class="hidden md:flex items-center space-x-8 space-x-reverse">
+                    <a href="#hero" class="text-gray-300 hover:text-white transition-colors">الرئيسية</a>
+                    <a href="#services" class="text-gray-300 hover:text-white transition-colors">خدماتنا</a>
+                    <a href="#portfolio" class="text-gray-300 hover:text-white transition-colors">أعمالنا</a>
+                    <a href="#about" class="text-gray-300 hover:text-white transition-colors">لماذا نحن؟</a>
+                </nav>
+                <a href="#contact" class="btn btn-primary hidden md:block bg-primary text-white py-2 px-5 rounded-lg hover:bg-teal-700 transition-colors">
+                    تواصل معنا
+                </a>
+                <button id="mobile-menu-button" class="md:hidden text-white focus:outline-none">
+                     <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+                </button>
+            </div>
+            <!-- قائمة الموبايل -->
+            <div id="mobile-menu" class="hidden md:hidden mt-4">
+                 <a href="#hero" class="block py-2 px-4 text-sm text-gray-300 hover:bg-gray-700 rounded">الرئيسية</a>
+                 <a href="#services" class="block py-2 px-4 text-sm text-gray-300 hover:bg-gray-700 rounded">خدماتنا</a>
+                 <a href="#portfolio" class="block py-2 px-4 text-sm text-gray-300 hover:bg-gray-700 rounded">أعمالنا</a>
+                 <a href="#about" class="block py-2 px-4 text-sm text-gray-300 hover:bg-gray-700 rounded">لماذا نحن؟</a>
+                 <a href="#contact" class="block mt-2 text-center py-2 px-4 text-sm text-white bg-primary rounded">تواصل معنا</a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        
+        <!--                    القسم الرئيسي                  -->
+       
+        <section id="hero" class="min-h-screen flex items-center bg-gray-900">
+            <div class="container mx-auto px-6 text-center">
+                <h1 class="text-4xl md:text-6xl font-bold text-white leading-tight mb-4">
+                    مرحباً بك في Webi
+                </h1>
+                <p class="text-lg md:text-xl text-gray-400 mb-8">
+                    حلّك المتكامل لتطوير وبناء المواقع الإلكترونية الحديثة.
+                </p>
+                <a href="#services" class="bg-primary text-white py-3 px-8 rounded-lg text-lg hover:bg-teal-700 transition-colors">ابدأ الآن</a>
+            </div>
+        </section>
+
+        <!-- === القسم الجديد مع الأنيميشن === -->
+        <section class="section-animation bg-gray-900">
+             <div class="animation-container">
+                <span class="shape">&lt;/&gt;</span>
+                <span class="shape">{ }</span>
+                <span class="shape">CSS</span>
+                <span class="shape">JS</span>
+                <span class="shape">HTML</span>
+                <span class="shape">()</span>
+                <span class="shape">=></span>
+                <span class="shape">.jsx</span>
+                <span class="shape">#</span>
+                <span class="shape">.</span>
+            </div>
+        </section>
+        
+        <!--                       الخدمات                     -->
+        
+        <section id="services" class="py-20 bg-gray-900">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-12 reveal">
+                    <h2 class="text-3xl md:text-4xl font-bold text-white">خدماتنا</h2>
+                    <p class="text-gray-400 mt-2">نقدم حلولاً متكاملة لتحويل فكرتك إلى واقع رقمي.</p>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- بطاقة الخدمة 1 -->
+                    <div class="bg-gray-800 p-8 rounded-xl shadow-lg transform hover:-translate-y-2 transition-transform duration-300 reveal">
+                        <div class="text-primary mb-4">
+                            <svg class="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4"></path></svg>
+                        </div>
+                        <h3 class="text-2xl font-bold text-white mb-2">تصميم وتطوير المواقع</h3>
+                        <p class="text-gray-400">نصمم ونبني مواقع ويب مخصصة بالكامل، سريعة، ومتجاوبة مع جميع الأجهزة.</p>
+                    </div>
+                    <!-- بطاقة الخدمة 2 -->
+                    <div class="bg-gray-800 p-8 rounded-xl shadow-lg transform hover:-translate-y-2 transition-transform duration-300 reveal">
+                        <div class="text-primary mb-4">
+                             <svg class="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"></path></svg>
+                        </div>
+                        <h3 class="text-2xl font-bold text-white mb-2">المتاجر الإلكترونية</h3>
+                        <p class="text-gray-400">نطور متاجر إلكترونية احترافية مع بوابات دفع آمنة لتنمية أعمالك على الإنترنت.</p>
+                    </div>
+                    <!-- بطاقة الخدمة 3 -->
+                    <div class="bg-gray-800 p-8 rounded-xl shadow-lg transform hover:-translate-y-2 transition-transform duration-300 reveal">
+                        <div class="text-primary mb-4">
+                           <svg class="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+                        </div>
+                        <h3 class="text-2xl font-bold text-white mb-2">تحسين محركات البحث</h3>
+                        <p class="text-gray-400">نساعد موقعك على تصدر نتائج البحث في جوجل لزيادة عدد الزوار والعملاء.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+      
+        <!--                   معرض الأعمال                   -->
+        
+        <section id="portfolio" class="py-20">
+            <div class="container mx-auto px-6">
+                 <div class="text-center mb-12 reveal">
+                    <h2 class="text-3xl md:text-4xl font-bold text-white">أحدث أعمالنا</h2>
+                    <p class="text-gray-400 mt-2">نظرة على بعض المشاريع التي نفخر بها.</p>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- مشروع 1 -->
+                    <div class="group relative overflow-hidden rounded-lg shadow-lg reveal">
+                        <img src="Image/Store.png"صورة المشروع الأول" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                        <div class="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                           <div class="text-center">
+                                <h3 class="text-xl font-bold text-white">متجر إلكتروني</h3>
+                           </div>
+                        </div>
+                    </div>
+                    <!-- مشروع 2 -->
+                    <div class="group relative overflow-hidden rounded-lg shadow-lg reveal">
+                        <img src="Image/Gemini_Generated_Image_wrweilwrweilwrwe.png" alt="صورة المشروع الثاني" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                        <div class="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                           <div class="text-center">
+                                <h3 class="text-xl font-bold text-white">موقع تعريفي لشركة</h3>
+                           </div>
+                        </div>
+                    </div>
+                    <!-- مشروع 3 -->
+                    <div class="group relative overflow-hidden rounded-lg shadow-lg reveal">
+                        <img src="Image/blog.png" alt="صورة المشروع الثالث" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                        <div class="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                           <div class="text-center">
+                                <h3 class="text-xl font-bold text-white">مدونة شخصية</h3>
+                           </div>
+                        </div>
+                    </div>
+                  
+                </div>
+            </div>
+        </section>
+
+        
+        <!--                    لماذا تختارنا؟                 -->
+
+        <section id="about" class="py-20 bg-gray-900">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-12 reveal">
+                    <h2 class="text-3xl md:text-4xl font-bold text-white">لماذا تختارنا؟</h2>
+                    <p class="text-gray-400 mt-2">نحن نجمع بين الإبداع والتقنية لنقدم لك الأفضل.</p>
+                </div>
+                <div class="flex flex-wrap items-center">
+                    <div class="w-full md:w-1/2 p-4 reveal">
+                        <img src="https://placehold.co/600x450/111827/0d9488?text=Why+Us" class="rounded-lg shadow-xl" alt="صورة توضيحية">
+                    </div>
+                    <div class="w-full md:w-1/2 p-4 reveal">
+                        <ul class="space-y-6">
+                            <li class="flex items-start">
+                                <div class="bg-primary/20 text-primary p-3 rounded-full mr-4 ml-4">
+                                     <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z"></path></svg>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-white text-lg">تصاميم عصرية ومتجاوبة</h4>
+                                    <p class="text-gray-400">نضمن أن موقعك سيبدو رائعاً ويعمل بكفاءة على جميع الأجهزة، من الهواتف إلى الشاشات الكبيرة.</p>
+                                </div>
+                            </li>
+                            <li class="flex items-start">
+                                <div class="bg-primary/20 text-primary p-3 rounded-full mr-4 ml-4">
+                                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-white text-lg">أداء فائق السرعة</h4>
+                                    <p class="text-gray-400">نستخدم أحدث التقنيات لكتابة كود نظيف يضمن سرعة تحميل صفحات موقعك.</p>
+                                </div>
+                            </li>
+                             <li class="flex items-start">
+                                <div class="bg-primary/20 text-primary p-3 rounded-full mr-4 ml-4">
+                                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M24 20.993V24H0v-2.996A14.977 14.977 0 0112.004 15c4.904 0 9.26 2.354 11.996 5.993zM16.002 8.999a4 4 0 11-8 0 4 4 0 018 0z"></path></svg>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-white text-lg">دعم فني متواصل</h4>
+                                    <p class="text-gray-400">نبقى على تواصل معك حتى بعد إطلاق الموقع لتقديم الدعم والمساعدة اللازمة.</p>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+      
+        <!--                  الدعوة للتواصل                  -->
+
+        <section id="contact" class="py-20 bg-gray-900">
+            <div class="container mx-auto px-6 text-center reveal">
+                <h2 class="text-3xl md:text-4xl font-bold text-white">هل أنت جاهز لبناء موقع أحلامك؟</h2>
+                <p class="text-gray-400 mt-4 mb-8 max-w-2xl mx-auto">لا تتردد في التواصل معنا. نحن هنا لمساعدتك في تحقيق أهدافك الرقمية. احصل على استشارة مجانية اليوم!</p>
+                 <div class="flex justify-center space-x-6 space-x-reverse text-2xl">
+                    <a href="https://wa.me/9647865717182" class="hover:text-primary transition-colors"><i class="fab fa-whatsapp"></i></a>
+                    <a href="mailto:Mabdivan@gmail.com" class="hover:text-primary transition-colors"><i class="fas fa-envelope"></i></a>
+                    <a href="https://t.me/ALLMIGHTYMAABED" class="hover:text-primary transition-colors"><i class="fab fa-telegram"></i></a>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+  
+    <!--                       الفوتر                      -->
+ 
+    <footer class="bg-gray-800 text-gray-400">
+        <div class="container mx-auto px-6 py-8">
+                <div class="text-center">
+                    <p>&copy; 2025 Webi. جميع الحقوق محفوظة.</p>
+                </div>
+                  <div class="text-center mt-4">
+                  <p>Powered By <b>Aymen</b></p>
+                  </div>
+        </div>
+    </footer>
+
+    <script>
+        // سكربت بسيط لفتح وإغلاق قائمة الموبايل
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileMenuLinks = mobileMenu.querySelectorAll('a');
+
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // إغلاق القائمة عند الضغط على أي رابط فيها لتحسين تجربة المستخدم
+        mobileMenuLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+
+        // سكربت بسيط لإظهار العناصر عند التمرير
+        const revealElements = document.querySelectorAll('.reveal');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, {
+            threshold: 0.1
+        });
+
+        revealElements.forEach(el => {
+            observer.observe(el);
+        });
+
+        // سكربت للتنقل السلس (مع إصلاح الخطأ)
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                const href = this.getAttribute('href');
+                
+                // نتأكد أن الرابط ليس مجرد # لتجنب الخطأ
+                if (href && href !== '#') {
+                    const targetElement = document.querySelector(href);
+                    // نتأكد أن العنصر المستهدف موجود في الصفحة
+                    if (targetElement) {
+                        e.preventDefault();
+                        targetElement.scrollIntoView({
+                            behavior: 'smooth'
+                        });
+                    }
+                }
+            });
+        });
+    </script>
+
+</body>
+</html>
